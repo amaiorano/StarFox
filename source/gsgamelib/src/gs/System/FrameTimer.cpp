@@ -5,8 +5,8 @@
 
 FrameTimer::FrameTimer()
 	: m_isPaused(false)
-	, m_minFrameDeltaTime(NoLimit)
-	, m_maxFrameDeltaTime(NoLimit)
+	, m_minFrameDeltaTime(0.f)
+	, m_maxFrameDeltaTime(0.f)
 	, m_firstTimeStamp(0.f)
 	, m_lastTimeStamp(0.f)
 	, m_simFrameDeltaTime(0.f)
@@ -14,6 +14,8 @@ FrameTimer::FrameTimer()
 	, m_realElapsedTime(0.f)
 	, m_fps(0.f)
 {
+	SetMinFPS(NoLimit);
+	SetMaxFPS(NoLimit);
 }
 
 void FrameTimer::Update()
