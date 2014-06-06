@@ -869,7 +869,7 @@ int main()
 	while (!bQuit)
 	{
 		// Handle pause
-		if ( !gfxEngine.HasFocus() ) // Auto-pause when we window loses focus
+		if ( !System::IsDebuggerAttached() && !gfxEngine.HasFocus() ) // Auto-pause when we window loses focus
 		{
 			frameTimer.SetPaused(true);
 		}
@@ -1005,7 +1005,7 @@ int main()
 
 						auto pQuadric = gluNewQuadric();
 						glColor3f(1.f, 0.f, 0.f);
-						gluSphere(pQuadric, 10.f, 10, 10);
+						gluSphere(pQuadric, 10.f, 8, 8);
 						gluDeleteQuadric(pQuadric);
 
 						for (const auto& pwChildNode : psNode->GetChildren())

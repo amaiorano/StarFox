@@ -66,6 +66,11 @@ public:
 		::GetCursorInfo(&cursInfo);
 		return (cursInfo.flags & CURSOR_SHOWING);
 	}
+
+	static bool IsDebuggerAttached()
+	{
+		return ::IsDebuggerPresent() == TRUE;
+	}
 };
 
 #endif // _WIN32SYSTEM_H_
