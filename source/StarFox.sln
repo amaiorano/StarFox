@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gsgamelib", "gsgamelib\gsgamelib.vcxproj", "{A13FC9EC-F1C4-4B02-ACC6-4B8323EE6529}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starfoxgame", "starfoxgame\starfoxgame.vcxproj", "{BE49EC67-A21D-4DFE-AC3B-17E142850A37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A13FC9EC-F1C4-4B02-ACC6-4B8323EE6529}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A13FC9EC-F1C4-4B02-ACC6-4B8323EE6529}.Debug|Win32.Build.0 = Debug|Win32
+		{A13FC9EC-F1C4-4B02-ACC6-4B8323EE6529}.Release|Win32.ActiveCfg = Release|Win32
+		{A13FC9EC-F1C4-4B02-ACC6-4B8323EE6529}.Release|Win32.Build.0 = Release|Win32
+		{BE49EC67-A21D-4DFE-AC3B-17E142850A37}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BE49EC67-A21D-4DFE-AC3B-17E142850A37}.Debug|Win32.Build.0 = Debug|Win32
+		{BE49EC67-A21D-4DFE-AC3B-17E142850A37}.Release|Win32.ActiveCfg = Release|Win32
+		{BE49EC67-A21D-4DFE-AC3B-17E142850A37}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

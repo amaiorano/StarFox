@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+	<!-- Assume FBXSDK is installed in default location, otherwise user must set FBX_SDK_ROOT env var -->
+    <FBXSDKROOT Condition="'$(FBX_SDK_ROOT)'==''">C:\Program Files\Autodesk\FBX\FBX SDK\2015.1</FBXSDKROOT>
+	<FBXSDKROOT Condition="'$(FBX_SDK_ROOT)'!=''">$(FBX_SDK_ROOT)</FBXSDKROOT>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(FBXSDKROOT)/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(FBXSDKROOT)/lib/vs2012/x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug/libfbxsdk-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release/libfbxsdk-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="FBXSDKROOT">
+      <Value>$(FBXSDKROOT)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

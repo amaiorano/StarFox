@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="unit_tests\UnitTest_Math.cpp" />
+    <ClInclude Include="src\gs\Base\Base.h" />
+    <ClInclude Include="src\gs\Base\Singleton.h" />
+    <ClInclude Include="src\gs\Base\string_helpers.h" />
+    <ClInclude Include="src\gs\Image\ImageData.h" />
+    <ClInclude Include="src\gs\Image\ImageFuncs.h" />
+    <ClInclude Include="src\gs\Input\KeyboardMgr.h" />
+    <ClInclude Include="src\gs\Math\Angle.h" />
+    <ClInclude Include="src\gs\Math\EulerAngles.h" />
+    <ClInclude Include="src\gs\Math\MathEx.h" />
+    <ClInclude Include="src\gs\Math\MathUtil.h" />
+    <ClInclude Include="src\gs\Math\Matrix43.h" />
+    <ClInclude Include="src\gs\Math\Quaternion.h" />
+    <ClCompile Include="src\gs\Base\string_helpers.cpp" />
+    <ClCompile Include="src\gs\Image\ImageData.cpp" />
+    <ClCompile Include="src\gs\Image\ImageFuncs.cpp" />
+    <ClCompile Include="src\gs\Input\KeyboardMgr.cpp" />
+    <ClInclude Include="src\gs\Math\Vector3.h" />
+    <ClInclude Include="src\gs\Math\Vector4.h" />
+    <ClInclude Include="src\gs\Platform\GL\GLHeaders.h" />
+    <ClInclude Include="src\gs\Platform\GL\GLUtil.h" />
+    <ClInclude Include="src\gs\Platform\Win32\BasicWin32Window.h" />
+    <ClInclude Include="src\gs\Platform\Win32\MFCWindow.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\Win32\Win32GLGraphicsEngine.h" />
+    <ClInclude Include="src\gs\Platform\Win32\Win32Headers.h" />
+    <ClInclude Include="src\gs\Platform\Win32\Win32MonitorInfo.h" />
+    <ClInclude Include="src\gs\Platform\Win32\Win32System.h" />
+    <ClInclude Include="src\gs\Platform\Win32\Win32Window.h" />
+    <ClInclude Include="src\gs\Rendering\Color4.h" />
+    <ClInclude Include="src\gs\Rendering\GraphicsEngine.h" />
+    <ClInclude Include="src\gs\Rendering\Renderer.h" />
+    <ClInclude Include="src\gs\Scene\SceneGraph.h" />
+    <ClInclude Include="src\gs\Scene\SceneNode.h" />
+    <ClInclude Include="src\gs\Scene\SceneNodeComponent.h" />
+    <ClInclude Include="src\gs\System\FrameTimer.h" />
+    <ClInclude Include="src\gs\System\IO.h" />
+    <ClInclude Include="src\gs\System\System.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\gs\Math\EulerAngles.cpp" />
+    <ClCompile Include="src\gs\Math\MathEx.cpp" />
+    <ClCompile Include="src\gs\Math\Matrix43.cpp" />
+    <ClCompile Include="src\gs\Math\Quaternion.cpp" />
+    <ClCompile Include="src\gs\Math\Vector3.cpp" />
+    <ClCompile Include="src\gs\Math\Vector4.cpp" />
+    <ClCompile Include="src\gs\Platform\GL\GLUtil.cpp" />
+    <ClCompile Include="src\gs\Platform\Win32\BasicWin32Window.cpp" />
+    <ClCompile Include="src\gs\Platform\Win32\MFCWindow.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\gs\Platform\Win32\Win32GLGraphicsEngine.cpp" />
+    <ClCompile Include="src\gs\Platform\Win32\Win32System.cpp" />
+    <ClCompile Include="src\gs\Rendering\GraphicsEngine.cpp" />
+    <ClCompile Include="src\gs\Rendering\Renderer.cpp" />
+    <ClCompile Include="src\gs\Scene\SceneGraph.cpp" />
+    <ClCompile Include="src\gs\Scene\SceneNode.cpp" />
+    <ClCompile Include="src\gs\Scene\SceneNodeComponent.cpp" />
+    <ClCompile Include="src\gs\System\FrameTimer.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A13FC9EC-F1C4-4B02-ACC6-4B8323EE6529}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>gsgamelib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\base.props" />
+    <Import Project="gsgamelib.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\base.props" />
+    <Import Project="gsgamelib.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

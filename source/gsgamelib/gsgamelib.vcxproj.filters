@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="src\gs\Math\MathEx.h">
+      <Filter>src\gs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Math\Matrix43.h">
+      <Filter>src\gs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Math\Vector3.h">
+      <Filter>src\gs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\System\IO.h">
+      <Filter>src\gs\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\System\System.h">
+      <Filter>src\gs\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Rendering\Renderer.h">
+      <Filter>src\gs\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Math\Angle.h">
+      <Filter>src\gs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Math\EulerAngles.h">
+      <Filter>src\gs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Math\Quaternion.h">
+      <Filter>src\gs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\Win32\BasicWin32Window.h">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\Win32\MFCWindow.h">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\Win32\Win32GLGraphicsEngine.h">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\Win32\Win32MonitorInfo.h">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\Win32\Win32System.h">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\Win32\Win32Window.h">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Rendering\GraphicsEngine.h">
+      <Filter>src\gs\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\System\FrameTimer.h">
+      <Filter>src\gs\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Input\KeyboardMgr.h">
+      <Filter>src\gs\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Image\ImageData.h">
+      <Filter>src\gs\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Image\ImageFuncs.h">
+      <Filter>src\gs\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Math\Vector4.h">
+      <Filter>src\gs\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Base\Base.h">
+      <Filter>src\gs\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Base\Singleton.h">
+      <Filter>src\gs\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Base\string_helpers.h">
+      <Filter>src\gs\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Rendering\Color4.h">
+      <Filter>src\gs\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Scene\SceneNode.h">
+      <Filter>src\gs\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Scene\SceneGraph.h">
+      <Filter>src\gs\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Scene\SceneNodeComponent.h">
+      <Filter>src\gs\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\GL\GLUtil.h">
+      <Filter>src\gs\Platform\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\GL\GLHeaders.h">
+      <Filter>src\gs\Platform\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Platform\Win32\Win32Headers.h">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gs\Math\MathUtil.h">
+      <Filter>src\gs\Math</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\gs\Math\MathEx.cpp">
+      <Filter>src\gs\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Math\Matrix43.cpp">
+      <Filter>src\gs\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Math\Vector3.cpp">
+      <Filter>src\gs\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Rendering\Renderer.cpp">
+      <Filter>src\gs\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Math\EulerAngles.cpp">
+      <Filter>src\gs\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Math\Quaternion.cpp">
+      <Filter>src\gs\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Platform\Win32\BasicWin32Window.cpp">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Platform\Win32\MFCWindow.cpp">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Platform\Win32\Win32GLGraphicsEngine.cpp">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Platform\Win32\Win32System.cpp">
+      <Filter>src\gs\Platform\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Rendering\GraphicsEngine.cpp">
+      <Filter>src\gs\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\System\FrameTimer.cpp">
+      <Filter>src\gs\System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Input\KeyboardMgr.cpp">
+      <Filter>src\gs\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Image\ImageData.cpp">
+      <Filter>src\gs\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Image\ImageFuncs.cpp">
+      <Filter>src\gs\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Math\Vector4.cpp">
+      <Filter>src\gs\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Base\string_helpers.cpp">
+      <Filter>src\gs\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Scene\SceneNode.cpp">
+      <Filter>src\gs\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Scene\SceneNodeComponent.cpp">
+      <Filter>src\gs\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Scene\SceneGraph.cpp">
+      <Filter>src\gs\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gs\Platform\GL\GLUtil.cpp">
+      <Filter>src\gs\Platform\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="unit_tests\UnitTest_Math.cpp">
+      <Filter>src\unit_tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{9ced28be-fa6a-4d97-a2fc-3bd17528b86e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs">
+      <UniqueIdentifier>{0b3e16b3-09f0-44d4-aecb-726313c822fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\Math">
+      <UniqueIdentifier>{1ca959d7-0062-44b7-bd8c-12fe555f82bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\Rendering">
+      <UniqueIdentifier>{06c7d4b3-b38e-4644-bd24-e3177de608fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\System">
+      <UniqueIdentifier>{4906ddc9-4b07-4b82-86f6-5807fbd36eaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\Platform">
+      <UniqueIdentifier>{d4978bb6-b51b-4afb-85a4-ce28fafac8ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\Platform\Win32">
+      <UniqueIdentifier>{6f950d3b-7c75-4b12-a3e4-fb7d8ff6ef4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\Platform\GL">
+      <UniqueIdentifier>{7d50cd0e-1622-4830-974c-25d59561c27c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\Input">
+      <UniqueIdentifier>{5470ebf2-427a-4f67-8e3f-e8fa36c81060}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\Image">
+      <UniqueIdentifier>{9700bdba-cfac-4592-9b39-e62ca74ab880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\Scene">
+      <UniqueIdentifier>{9593525b-c292-46e9-9447-58067db0376b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gs\Base">
+      <UniqueIdentifier>{3b983a1f-001a-4b71-80c1-9ad6d5bbf5d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\unit_tests">
+      <UniqueIdentifier>{8feb772b-bccf-439e-bffb-1e6f1bd8352c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
