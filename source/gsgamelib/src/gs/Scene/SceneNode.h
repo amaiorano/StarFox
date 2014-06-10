@@ -320,4 +320,16 @@ private:
 #pragma endregion Component
 };
 
+template <typename ComponentT>
+ComponentT* SceneNodeComponent::TryGetSiblingComponent()
+{
+	return m_pSceneNode->TryGetComponent<ComponentT>();
+}
+
+template <typename ComponentT>
+ComponentT* SceneNodeComponent::GetSiblingComponent()
+{
+	return m_pSceneNode->GetComponent<ComponentT>();
+}
+
 #endif // __SCENE_NODE_H__

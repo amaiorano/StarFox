@@ -16,10 +16,10 @@ public:
 	SceneNode* GetSceneNode() { assert(m_pSceneNode); return m_pSceneNode; }
 
 	template <typename ComponentT>
-	ComponentT* TryGetSiblingComponent() { return m_pSceneNode->TryGetComponent<ComponentT>(); }
+	ComponentT* TryGetSiblingComponent();
 
 	template <typename ComponentT>
-	ComponentT* GetSiblingComponent() { return m_pSceneNode->GetComponent<ComponentT>(); }
+	ComponentT* GetSiblingComponent();
 
 	void SetEnabled(bool enabled) { m_enabled = enabled; }
 	bool IsEnabled() const { return m_enabled; }
