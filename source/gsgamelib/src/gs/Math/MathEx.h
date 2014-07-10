@@ -200,7 +200,7 @@ namespace MathEx
 	}
 
 	template <typename T>
-	T Lerp(T a, T b, float t) { return a + (b-a)*t; }
+	T Lerp(T a, T b, float32 t) { return a + (b-a)*t; }
 
 	template <typename T>
 	T Sign(T v, T resultIfZero = 0)

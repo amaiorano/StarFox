@@ -51,7 +51,7 @@ public:
 
 	// (Optional) If set, when window is resized, callback will be invoked with new window dimensions.
 	// Set before invoking Initialize() to get the initial callback when the window is created.
-	typedef std::function<void (GraphicsEngine&, float32 newWidth, float32 newHeight)> WindowResizedCallback;
+	typedef std::function<void (GraphicsEngine& gfxEngine, float32 newWidth, float32 newHeight)> WindowResizedCallback;
 	void SetWindowResizedCallback(const WindowResizedCallback& callback)
 	{
 		m_windowResizedCallback = callback;

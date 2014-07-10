@@ -58,7 +58,7 @@ inline float32 ApproachDamped(float32 current, float32 target, float32 deltaTime
 
 	const float32 delta = target - current;
 	const float32 deltaSign = MathEx::Sign(delta);
-	const float newTarget = target + deltaSign * tolerance;
+	const float32 newTarget = target + deltaSign * tolerance;
 
 	const float32 alpha = 1.f - MathEx::Pow(1.f - factor, deltaTime / timeToTarget);
 	const float32 step = (newTarget - current) * alpha;

@@ -133,7 +133,7 @@ inline Vector3 Quaternion::AxisZ() const
 	return RotatedVector(Vector3::UnitZ());
 }
 
-Quaternion Slerp(const Quaternion& q1, const Quaternion& q2, float t);
+Quaternion Slerp(const Quaternion& q1, const Quaternion& q2, float32 t);
 
 
 #endif // _GS_QUATERNION_H_
