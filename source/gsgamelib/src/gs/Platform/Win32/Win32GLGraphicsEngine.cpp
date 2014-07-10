@@ -48,6 +48,39 @@ void OnWindowResized(float32 newWidth, float32 newHeight)
 	{
 		g_pWin32GLGraphicsEngine->m_windowResizedCallback(*g_pWin32GLGraphicsEngine, newWidth, newHeight);
 	}
+	else
+	{
+		// If no user-custom callback, default is to maximize viewport size to window while
+		// maintaining original aspect ratio
+
+		const float32 aspectRatio = g_pWin32GLGraphicsEngine->m_initialWidth / g_pWin32GLGraphicsEngine->m_initialHeight;
+
+		float32 x = 0;
+		float32 y = 0;
+		float32 viewWidth = newWidth;
+		float32 viewHeight = newHeight;
+
+		viewWidth = newHeight * aspectRatio;
+
+		if (viewWidth > newWidth)
+		{
+			viewWidth = newWidth;
+			viewHeight = newWidth / aspectRatio;
+			y = (newHeight - viewHeight) / 2.f;
+		}
+		else
+		{
+			x = (newWidth - viewWidth) / 2.f;
+		}
+
+		Viewport vp(x, y, viewWidth, viewHeight);
+		g_pWin32GLGraphicsEngine->SetActiveViewport(vp);
+
+		// Use scissoring to make sure area outside of viewport in window is black
+		glEnable(GL_SCISSOR_TEST);
+		glScissor((int)x, (int)y, (int)viewWidth, (int)viewHeight);
+
+	}
 }
 
 
@@ -59,6 +92,8 @@ Win32GLGraphicsEngine::Win32GLGraphicsEngine()
 void Win32GLGraphicsEngine::Initialize(const char* title, int width, int height, int bpp, ScreenMode::Type screenMode, VertSync::Type vertSync)
 {
 	g_pWin32GLGraphicsEngine = this;
+	m_initialWidth = (float32)width;
+	m_initialHeight = (float32)height;
 
 	assert(m_pWindow == nullptr);
 	m_pWindow = ::GetWin32Window();
@@ -145,12 +180,10 @@ void Win32GLGraphicsEngine::Shutdown()
 	g_pWin32GLGraphicsEngine = nullptr;
 }
 
-void Win32GLGraphicsEngine::Update(bool& bQuit, bool bIsPaused)
+void Win32GLGraphicsEngine::Update(bool& bQuit)
 {
 	m_pWindow->ProcessMessages(bQuit);
-
-	if (!bIsPaused)
-		::SwapBuffers( m_hDC );
+	::SwapBuffers( m_hDC );
 }
 
 void Win32GLGraphicsEngine::SetTitle(const char* title)

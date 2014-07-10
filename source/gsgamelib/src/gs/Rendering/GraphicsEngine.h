@@ -47,7 +47,7 @@ public:
 	virtual void Shutdown() = 0 ;
 
 	// Call once per frame, sets bQuit to true if user tries to quit, false otherwise
-	virtual void Update(bool& bQuit, bool bIsPaused = false) = 0;
+	virtual void Update(bool& bQuit) = 0;
 
 	// (Optional) If set, when window is resized, callback will be invoked with new window dimensions.
 	// Set before invoking Initialize() to get the initial callback when the window is created.

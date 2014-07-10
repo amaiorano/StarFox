@@ -31,36 +31,6 @@ bool g_drawSockets = false;
 float32 g_normalScale = 10.0f;
 bool g_renderSceneGraph = false;
 
-void OnWindowResized(GraphicsEngine& gfxEngine, float32 newWidth, float32 newHeight)
-{
-	float32 x = 0;
-	float32 y = 0;
-	float32 viewWidth = newWidth;
-	float32 viewHeight = newHeight;
-
-	// Maximize viewport size to window while maintaining aspect ratio
-
-	viewWidth = newHeight * SCREEN_WIDTH_HEIGHT_RATIO;
-
-	if (viewWidth > newWidth)
-	{
-		viewWidth = newWidth;
-		viewHeight = newWidth / SCREEN_WIDTH_HEIGHT_RATIO;
-		y = (newHeight - viewHeight) / 2.f;
-	}
-	else
-	{
-		x = (newWidth - viewWidth) / 2.f;
-	}
-
-	Viewport vp(x, y, viewWidth, viewHeight);
-	gfxEngine.SetActiveViewport(vp);
-
-	// Use scissoring to make sure area outside of viewport in window is black
-	glEnable(GL_SCISSOR_TEST);
-	glScissor((int)x, (int)y, (int)viewWidth, (int)viewHeight);
-}
-
 int main()
 {
 	extern void UnitTest_Math();
@@ -71,13 +41,6 @@ int main()
 
 	GraphicsEngine& gfxEngine = GraphicsEngine::Instance();
 	gfxEngine.Initialize("Star Fox", (int)SCREEN_WIDTH, (int)SCREEN_HEIGHT, 32, screenMode, vertSync);
-
-	gfxEngine.SetWindowResizedCallback(&OnWindowResized);
-
-	//Viewport vp(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-	//gfxEngine.SetActiveViewport(vp);
-
-	//System::SetMouseVisible(false);
 
 	// By default, when lighting is enabled, material parameters are used for shading, but vertex colors are ignored;
 	// while the opposite is true when lighting is disabled.
@@ -204,124 +167,120 @@ int main()
 
 		kbMgr.Update(deltaTime);
 
-		if ( frameTimer.IsPaused() )
+		if (kbMgr[VK_CONTROL].IsDown())
 		{
-			System::Sleep(1);
-		}
-		else
-		{
-			if (kbMgr[VK_CONTROL].IsDown())
+			if (kbMgr[VK_F1].JustPressed())
 			{
-				if (kbMgr[VK_F1].JustPressed())
-				{
-					static bool bLighting = glIsEnabled(GL_LIGHTING) == GL_TRUE;
-					bLighting = !bLighting;
-					bLighting? glEnable(GL_LIGHTING) : glDisable(GL_LIGHTING);
-				}
-				if (kbMgr[VK_F2].JustPressed())
-				{
-					//static bool bSmoothShading = GLUtil::GetShadeModel() == ShadeModel::Smooth;
-					//bSmoothShading = !bSmoothShading;
-					//GLUtil::SetShadeModel(bSmoothShading? ShadeModel::Smooth : ShadeModel::Flat);
-					g_drawSockets = !g_drawSockets;
-				}
-				if (kbMgr[VK_F3].JustPressed())
-				{
-					g_drawNormals = !g_drawNormals;
-				}
-				if (kbMgr[VK_F4].JustPressed())
-				{
-					GLUtil::SetTexturing( !GLUtil::GetTexturing() );
-				}
-				if (kbMgr[VK_F5].JustPressed())
-				{
-					static bool bWireframe = false;
-					bWireframe = !bWireframe;
-					GLUtil::SetWireFrame(bWireframe);
-				}
-				if (kbMgr[VK_F6].JustPressed())
-				{
-					g_renderSceneGraph = !g_renderSceneGraph;
-				}
+				static bool bLighting = glIsEnabled(GL_LIGHTING) == GL_TRUE;
+				bLighting = !bLighting;
+				bLighting? glEnable(GL_LIGHTING) : glDisable(GL_LIGHTING);
 			}
+			if (kbMgr[VK_F2].JustPressed())
+			{
+				//static bool bSmoothShading = GLUtil::GetShadeModel() == ShadeModel::Smooth;
+				//bSmoothShading = !bSmoothShading;
+				//GLUtil::SetShadeModel(bSmoothShading? ShadeModel::Smooth : ShadeModel::Flat);
+				g_drawSockets = !g_drawSockets;
+			}
+			if (kbMgr[VK_F3].JustPressed())
+			{
+				g_drawNormals = !g_drawNormals;
+			}
+			if (kbMgr[VK_F4].JustPressed())
+			{
+				GLUtil::SetTexturing( !GLUtil::GetTexturing() );
+			}
+			if (kbMgr[VK_F5].JustPressed())
+			{
+				static bool bWireframe = false;
+				bWireframe = !bWireframe;
+				GLUtil::SetWireFrame(bWireframe);
+			}
+			if (kbMgr[VK_F6].JustPressed())
+			{
+				g_renderSceneGraph = !g_renderSceneGraph;
+			}
+		}
 
-			// UPDATE			
-			std::vector<SceneNodeWeakPtr> sceneNodeList = SceneNode::GetAllNodesSnapshot();
+		// UPDATE
+		std::vector<SceneNodeWeakPtr> sceneNodeList = SceneNode::GetAllNodesSnapshot();
+		if ( !frameTimer.IsPaused() )
+		{
 			for (auto pwNode : sceneNodeList)
 			{
 				if (const auto& psNode = pwNode.lock())
 					psNode->Update(deltaTime);
 			}
+		}
 
-			SceneNode::ValidateSceneGraph();
+		SceneNode::ValidateSceneGraph();
 
 
-			// RENDER
-			glClearColor(0.f, 0.f, 0.3f, 0.f);
-			glClearDepth(1.f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		// RENDER
+		glClearColor(0.f, 0.f, 0.3f, 0.f);
+		glClearDepth(1.f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			// Load inverse camera matrix so future transforms are in camera space
-			glMatrixMode(GL_MODELVIEW);
-			//glLoadIdentity();
-			Matrix43 mInvCam = pwCamera.lock()->GetLocalToWorld();
-			//assert(mInvCam.IsOrthogonal());
-			mInvCam.axisZ = -mInvCam.axisZ; // Game -> OpenGL (flip Z axis)
-			mInvCam.InvertSRT();
-			GLfloat mCamGL[16];
-			GLUtil::Matrix43ToGLMatrix(mInvCam, mCamGL);
-			glLoadMatrixf(mCamGL);
+		// Load inverse camera matrix so future transforms are in camera space
+		glMatrixMode(GL_MODELVIEW);
+		//glLoadIdentity();
+		Matrix43 mInvCam = pwCamera.lock()->GetLocalToWorld();
+		//assert(mInvCam.IsOrthogonal());
+		mInvCam.axisZ = -mInvCam.axisZ; // Game -> OpenGL (flip Z axis)
+		mInvCam.InvertSRT();
+		GLfloat mCamGL[16];
+		GLUtil::Matrix43ToGLMatrix(mInvCam, mCamGL);
+		glLoadMatrixf(mCamGL);
 
-			// Render scene nodes in camera space
+		// Render scene nodes in camera space
+		for (auto pwNode : sceneNodeList)
+		{
+			if (const auto& psNode = pwNode.lock())
+			{
+				psNode->Render();
+			}
+		}
+
+		// Render debug objects
+		g_debugDrawManager.Render();
+
+		// Render scene graph
+		if (g_renderSceneGraph)
+		{
 			for (auto pwNode : sceneNodeList)
 			{
 				if (const auto& psNode = pwNode.lock())
 				{
-					psNode->Render();
-				}
-			}
+					if (is_weak_to_shared_ptr(pwCamera, psNode))
+						continue;
 
-			// Render debug objects
-			g_debugDrawManager.Render();
+					GLUtil::PushAndMultMatrix(psNode->GetLocalToWorld());
 
-			// Render scene graph
-			if (g_renderSceneGraph)
-			{
-				for (auto pwNode : sceneNodeList)
-				{
-					if (const auto& psNode = pwNode.lock())
+					auto pQuadric = gluNewQuadric();
+					glColor3f(1.f, 0.f, 0.f);
+					gluSphere(pQuadric, 10.f, 8, 8);
+					gluDeleteQuadric(pQuadric);
+
+					for (const auto& pwChildNode : psNode->GetChildren())
 					{
-						if (is_weak_to_shared_ptr(pwCamera, psNode))
-							continue;
-
-						GLUtil::PushAndMultMatrix(psNode->GetLocalToWorld());
-
-						auto pQuadric = gluNewQuadric();
-						glColor3f(1.f, 0.f, 0.f);
-						gluSphere(pQuadric, 10.f, 8, 8);
-						gluDeleteQuadric(pQuadric);
-
-						for (const auto& pwChildNode : psNode->GetChildren())
+						if (const auto& psChildNode = pwChildNode.lock())
 						{
-							if (const auto& psChildNode = pwChildNode.lock())
-							{
-								const auto& mChildLocal = psChildNode->GetLocalToParent();
+							const auto& mChildLocal = psChildNode->GetLocalToParent();
 
-								glBegin(GL_LINES);
-								glVertex3fv(Vector3::Zero().v);
-								glVertex3fv(mChildLocal.trans.v);
-								glEnd();
-							}
+							glBegin(GL_LINES);
+							glVertex3fv(Vector3::Zero().v);
+							glVertex3fv(mChildLocal.trans.v);
+							glEnd();
 						}
-						
-						glPopMatrix();
 					}
+						
+					glPopMatrix();
 				}
 			}
 		}
 
 		// Flip buffers, process msgs, etc.
-		gfxEngine.Update(bQuit, frameTimer.IsPaused());
+		gfxEngine.Update(bQuit);
 
 		// Handle frame stepping
 		static bool stepFrame = false;

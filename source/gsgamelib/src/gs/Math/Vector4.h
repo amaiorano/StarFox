@@ -28,12 +28,12 @@ public:
 
 	void Set(float32 x, float32 y, float32 z, float32 w) { this->x = x; this->y = y; this->z = z; this->w = w; }
 
-	bool AlmostEquals(const Vector4& rhs, float32 epsilon = kEpsilon);
+	bool AlmostEquals(const Vector4& rhs, float32 epsilon = kEpsilon) const;
 	
 	std::string ToString() const;
 };
 
-inline bool Vector4::AlmostEquals(const Vector4& rhs, float32 epsilon)
+inline bool Vector4::AlmostEquals(const Vector4& rhs, float32 epsilon) const
 {
 	return MathEx::AlmostEquals(x, rhs.x, epsilon)
 		&& MathEx::AlmostEquals(y, rhs.y, epsilon)

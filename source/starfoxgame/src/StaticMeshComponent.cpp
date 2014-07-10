@@ -41,6 +41,7 @@ static void DrawStaticMesh(const gfx::StaticMesh& staticMesh, const Matrix43& mM
 		for (const auto& vertex : subMesh.m_vertices)
 		{
 			glColor4fv(vertex.color.v);
+			assert(Vector3(vertex.normal).IsUnit() && "Normal must be unit length for lighting to work!");
 			glNormal3fv((vertex.normal /** mMeshToWorld*/).v);
 			glTexCoord2fv(vertex.textureCoords.v);
 			glVertex3fv((vertex.position /** mMeshToWorld*/).v);
