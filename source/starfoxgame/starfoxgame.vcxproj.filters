@@ -12,12 +12,48 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\DebugDraw.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CameraComponent.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlayerControlComponent.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StaticMeshComponent.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GroundComponent.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\FbxLoader.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\StaticMesh.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DebugDraw.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CameraComponent.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameInput.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlayerControlComponent.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AnchorComponent.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StaticMeshComponent.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GroundComponent.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

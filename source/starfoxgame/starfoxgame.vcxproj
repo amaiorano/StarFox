@@ -85,11 +85,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CameraComponent.cpp" />
+    <ClCompile Include="src\DebugDraw.cpp" />
     <ClCompile Include="src\FbxLoader.cpp" />
+    <ClCompile Include="src\GroundComponent.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\PlayerControlComponent.cpp" />
+    <ClCompile Include="src\StaticMeshComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\AnchorComponent.h" />
+    <ClInclude Include="src\CameraComponent.h" />
+    <ClInclude Include="src\DebugDraw.h" />
     <ClInclude Include="src\FbxLoader.h" />
+    <ClInclude Include="src\GameInput.h" />
+    <ClInclude Include="src\GroundComponent.h" />
+    <ClInclude Include="src\StaticMeshComponent.h" />
+    <ClInclude Include="src\PlayerControlComponent.h" />
     <ClInclude Include="src\StaticMesh.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
