@@ -27,6 +27,9 @@
     <ClCompile Include="src\GroundComponent.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\AnchorComponent.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\FbxLoader.h">
