@@ -27,7 +27,3 @@ ipch/
 
 # Other
 *.wwdb
-
-# Project-specific
-_intermediate
-_output
