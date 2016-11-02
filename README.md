@@ -8,21 +8,18 @@ I put this project together mostly because I wanted to test out some ideas I had
 
 # Building the Code
 
-This project is developed on Windows, but should be easy enough to port to other platforms.
+This project is developed on Windows, but should be easy enough to port to other platforms. This would mainly consist of implementing the platform-specific files in gsgamelib/src/gs/platform.
 
-**Install:**
+Assuming you're on Windows:
 
-- Visual Studio 2013
-  - Get Community Edition for free: https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
+Install Visual Studio (2013 or later)
 
-- Autodesk FDB SDK 2015.1 (vs2013)
-  - Download from: http://images.autodesk.com/adsk/files/fbx20151_fbxsdk_vs2013_win.exe
-  - When you build the solution, fbxsdk.props looks for the SDK in the default install folder "C:\Program Files\Autodesk\FBX\FBX SDK\2015.1", but you can override this by setting an environment variable named FBX_SDK_ROOT to your installed path. You can also try using this if you installed a newer version, although the code may not compile against a newer version.
+Install [Autodesk FDB SDK](http://www.autodesk.com/products/fbx/overview)
 
-**To Build:**
+cd StarFox/source/starfoxgame 
+mkdir build & cd build
+cmake ..
 
-Open ```source\StarFox.sln``` in Visual Studio 2013 and press F5 to build and launch the game.
+Open starfoxgame.sln and build the solution
 
-Note that the binaries for the game end up in ```source\_output\[Debug|Release]```, but the game data is in ```source\starfoxgame\data```. Visual Studio launches the exe in the output directory, but uses the project directory (where the vcxproj is) as it's current working directory.
-
-If you wish to package the binaries and data together, use the ```source\package.bat``` script in the root directory. This will copy everything to ```source\_package\StarFox```.
+To run the game, set starfoxgame as the startup project in Visual Studio, and set the Debug Working Directory to '..' (vcxproj-relative path to Starfox/source/starfoxgame)
