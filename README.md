@@ -12,13 +12,15 @@ This project is developed on Windows, but should be easy enough to port to other
 
 Assuming you're on Windows:
 
-Install Visual Studio (2013 or later)
+Install [Visual Studio](https://www.visualstudio.com) (2013 or later)
 
 Install [Autodesk FDB SDK](http://www.autodesk.com/products/fbx/overview)
 
+```
 cd StarFox/source/starfoxgame 
 mkdir build & cd build
 cmake ..
+```
 
 Open starfoxgame.sln and build the solution
 
