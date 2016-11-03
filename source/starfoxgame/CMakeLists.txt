@@ -6,14 +6,11 @@ add_executable(starfoxgame ${SRC})
 
 # gsgamelib
 add_subdirectory(../gsgamelib gsgamelib)
-list(APPEND SF_LINK_LIBS "gsgamelib")
+target_link_libraries(starfoxgame PRIVATE gsgamelib)
 
 # fbx sdk
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 find_package(FBX REQUIRED)
-list(APPEND SF_INCLUDE_DIRS ${FBX_INCLUDE_DIRS})
-list(APPEND SF_LINK_LIBS debug ${FBX_LIBRARIES_DEBUG})
-list(APPEND SF_LINK_LIBS optimized ${FBX_LIBRARIES})
-
-target_include_directories(starfoxgame PRIVATE ${SF_INCLUDE_DIRS})
-target_link_libraries(starfoxgame PRIVATE ${SF_LINK_LIBS})
+target_include_directories(starfoxgame PRIVATE ${FBX_INCLUDE_DIRS})
+target_link_libraries(starfoxgame PRIVATE debug ${FBX_LIBRARIES_DEBUG})
+target_link_libraries(starfoxgame PRIVATE optimized ${FBX_LIBRARIES})
