@@ -17,11 +17,13 @@ Install [Visual Studio](https://www.visualstudio.com) (2013 or later)
 Install [Autodesk FDB SDK](http://www.autodesk.com/products/fbx/overview)
 
 ```
-cd StarFox/source/starfoxgame 
+cd StarFox
 mkdir build & cd build
 cmake ..
 ```
 
-Open starfoxgame.sln and build the solution
+Open starfox.sln and build the solution.
 
-To run the game, set starfoxgame as the startup project in Visual Studio, and set the Debug Working Directory to '..' (vcxproj-relative path to Starfox/source/starfoxgame)
+To run the game, set starfoxgame as the startup project in Visual Studio, and set the Debug Working Directory to point to ```Starfox/source/starfoxgame```.
+
+Build the INSTALL project to have it install the game and data files to ```StarFox/bin```.
