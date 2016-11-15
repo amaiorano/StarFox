@@ -5,15 +5,20 @@ file(GLOB SRC "src/*.cpp" "src/*.h")
 add_executable(starfoxgame ${SRC})
 
 # gsgamelib
-add_subdirectory(../gsgamelib gsgamelib)
-list(APPEND SF_LINK_LIBS "gsgamelib")
+add_subdirectory(../gsgamelib ../gsgamelib)
+target_link_libraries(starfoxgame PRIVATE gsgamelib)
+if (BUILD_SHARED_LIBS)
+	add_custom_command(TARGET starfoxgame POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<TARGET_FILE:gsgamelib>" $<TARGET_FILE_DIR:starfoxgame>)
+endif()
 
 # fbx sdk
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
-find_package(FBX REQUIRED)
-list(APPEND SF_INCLUDE_DIRS ${FBX_INCLUDE_DIRS})
-list(APPEND SF_LINK_LIBS debug ${FBX_LIBRARIES_DEBUG})
-list(APPEND SF_LINK_LIBS optimized ${FBX_LIBRARIES})
+include(${CMAKE_CURRENT_LIST_DIR}/../fbxsdk/fbxsdk-targets.cmake)
+target_link_libraries(starfoxgame PRIVATE fbxsdk)
 
-target_include_directories(starfoxgame PRIVATE ${SF_INCLUDE_DIRS})
-target_link_libraries(starfoxgame PRIVATE ${SF_LINK_LIBS})
+# install rules
+# e.g.: cmake -DCMAKE_INSTALL_PREFIX=..
+install(TARGETS starfoxgame	RUNTIME DESTINATION bin)
+if (BUILD_SHARED_LIBS)
+	install(FILES $<TARGET_FILE:gsgamelib> DESTINATION bin)
+endif()
+install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/data DESTINATION bin)
